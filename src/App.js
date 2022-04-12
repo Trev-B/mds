@@ -8,7 +8,7 @@ import Nav from "./components/Nav/Nav";
 import AnalyzePlaylist from "./components/AnalyzePlaylist/AnalyzePlaylist";
 
 function App() {
-    const CLIENT_ID = "0ad564778439400288b8a2d44b3d0622";
+    const CLIENT_ID = "edff2062bb8e47e48622966107b668b5";
     const REDIRECT_URI = "http://localhost:3000";
     const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize";
     const RESPONSE_TYPE = "token";
@@ -70,7 +70,7 @@ function App() {
 
     const logout = () => {
         setToken("");
-        //window.localStorage.removeItem("token");
+        window.localStorage.removeItem("token");
     }
 
     // const searchArtists = async (e) => {
