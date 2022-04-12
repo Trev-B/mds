@@ -1,0 +1,9 @@
+.nav-container {
+    background-color: transparent;
+    border: 5in;
+}
+.nav-container button {
+    background-color: transparent;
+    color: red;
+    border: 5in;
+}
