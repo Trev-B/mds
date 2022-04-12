@@ -4,20 +4,13 @@ import PlaylistParams from './PlaylistParams';
 class GeneratePlaylist extends Component {
     constructor(props) {
         super(props);
-        this.state = {  visible: true, 
-                        playlist: null, 
+        this.state = {  playlist: null, 
                         playlistID: null,
                         playlistName: null,
                         artists: null,
                         genres: null,
                         tracks: null,
                         userParams: [] };
-    }
-    
-    
-    
-    setVisible() {
-        this.setState({ visible: !this.state.visible});
     }
 
     getTracksForPlaylist() {
@@ -65,7 +58,7 @@ class GeneratePlaylist extends Component {
                 </div>
             ))
         } else {
-            return <div>No Playlist</div>
+            return <div></div>
         }
     }
 
@@ -130,31 +123,24 @@ class GeneratePlaylist extends Component {
     render() {
         return (
             <div>
-                <button onClick={() => this.setVisible()}>Goto Playlist Generator</button>
-                {this.state.visible ?
-                    <div>
-                        <h1>Welcome to the Playlist Generator.</h1>
+                <h1>Welcome to the Playlist Generator.</h1>
 
-                        <h5>Please enter your playlist's name.</h5>
-                        <form>
-                            <input type="text" onChange={e => this.setState({playlistName: e.target.value})}/>
-                        </form>
+                <h5>Please enter your playlist's name.</h5>
+                <form>
+                    <input type="text" onChange={e => this.setState({playlistName: e.target.value})}/>
+                </form>
 
-                        <h5>Please enter your Artist/Genre/Track.</h5>
-                        <form onSubmit={this.handleSubmit}>
-                            <PlaylistParams data={
-                                { userParams:this.state.userParams,
-                                setUserParams:this.setUserParams.bind(this)}
-                            }></PlaylistParams>
-                            <button type={"submit"}>Generate</button>
-                        </form>
+                <h5>Please enter your Artist/Genre/Track.</h5>
+                <form onSubmit={this.handleSubmit}>
+                    <PlaylistParams data={
+                        { userParams:this.state.userParams,
+                        setUserParams:this.setUserParams.bind(this)}
+                    }></PlaylistParams>
+                    <button type={"submit"}>Generate</button>
+                </form>
 
-                        <h2>{this.renderPlaylist()}</h2>
-                        
-                    </div> :
-                    <div></div>
-                }
-            </div>
+                <h2>{this.renderPlaylist()}</h2>
+            </div> 
         );
     }
 }

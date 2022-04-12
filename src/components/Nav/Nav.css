@@ -2,8 +2,19 @@
     background-color: transparent;
     border: 5in;
 }
+
 .nav-container button {
-    background-color: transparent;
-    color: red;
+    background-color: white;
+    color: black;
     border: 5in;
+    margin-left: 10px;
+    border-radius: 30px;
+    cursor: pointer;
+    line-height: 20px;
+    font-size: 12pt;
+}
+
+.nav-container button:hover {
+    transition: 100ms transform ease-in;
+    transform: scale(1.08);
 }

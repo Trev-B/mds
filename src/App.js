@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import './App.css';
-//import axios from 'axios';
+// import axios from 'axios';
 import SpotifyWebApi from 'spotify-web-api-node';
 import TopTracks from './TopTracks';
 import GeneratePlaylist from './GeneratePlaylist';
@@ -109,7 +109,7 @@ function App() {
 
     return (
         <div className="App">
-            
+
             <header className="App-header">
 
                 
@@ -118,7 +118,7 @@ function App() {
                 {!token ?
                      <a href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPES.join("%20")}`}>Login
                          to Spotify</a>
-                    : <button onClick={logout}>Logout</button>
+                    : <button className="logout-btn" onClick={logout}>Logout</button>
                 }
 
                 {token ?
@@ -140,7 +140,7 @@ function App() {
                         <GeneratePlaylist spotify={spotifyApi} token={token}/> */}
                         
                     </div>
-                    : <h2>Welcome</h2>
+                    : <div></div>
                 }
 
                 {/* {token ?

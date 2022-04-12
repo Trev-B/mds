@@ -27,9 +27,9 @@
   color: white;
 }
 
-.nav-bar {
+/* .nav-bar {
   
-}
+} */
 
 /* .App-link {
   color: #61dafb;
@@ -43,3 +43,22 @@
     transform: rotate(360deg);
   }
 } */
+
+.logout-btn {
+  line-height: 22px;
+  font-size: 12pt;
+  background-color: white;
+  color: black;
+  margin-top: 10px;
+  margin-right: 10px;
+  position:absolute;
+  top:0;
+  right:0;
+  cursor: pointer;
+  border-radius: 30px;
+}
+
+.logout-btn:hover {
+  transition: 100ms transform ease-in;
+  transform: scale(1.08);
+}
