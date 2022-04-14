@@ -9,8 +9,8 @@ class Toptracks extends Component {
     render() {
         return (
             <div>   
-                <h1>Here are your top tracks.</h1>
-                <h2>{renderTopTracks(this.props.topTracks)}</h2> 
+                <h4>Here are your top tracks.</h4>
+                <h6>{renderTopTracks(this.props.topTracks)}</h6> 
             </div> 
         );
     }

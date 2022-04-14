@@ -62,3 +62,20 @@
   transition: 100ms transform ease-in;
   transform: scale(1.08);
 }
+
+.login-btn {
+  background-color: white;
+  color: black;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 30px;
+  font-size: 30px;
+}
+
+.login-btn:hover {
+  transition: 100ms transform ease-in;
+  transform: scale(1.08);
+}

@@ -116,8 +116,7 @@ function App() {
                 <h1>More Detailed Spotify</h1>
                 
                 {!token ?
-                     <a href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPES.join("%20")}`}>Login
-                         to Spotify</a>
+                     <a className="login-btn" href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPES.join("%20")}`}>Login to Spotify</a>
                     : <button className="logout-btn" onClick={logout}>Logout</button>
                 }
 

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PlaylistParams from './PlaylistParams';
+import './GeneratePlaylist.css';
 
 class GeneratePlaylist extends Component {
     constructor(props) {
@@ -7,9 +8,9 @@ class GeneratePlaylist extends Component {
         this.state = {  playlist: null, 
                         playlistID: null,
                         playlistName: null,
-                        artists: null,
-                        genres: null,
-                        tracks: null,
+                        artists: [],
+                        genres: [],
+                        tracks: [],
                         userParams: [] };
     }
 
@@ -64,20 +65,28 @@ class GeneratePlaylist extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        this.checkAGT(this.state.userParams[0], this.state.userParams[1]);
+        this.checkAGT(document.getElementById("agtParam").value, document.getElementById("agtType").value);
     }
 
     checkAGT(agt, type) {
         this.props.spotify.setAccessToken(this.props.token);
 
+        if( (this.state.artists.length + this.state.tracks.length + this.state.genres.length) >= 5 ) {
+            alert("Limit Reached.");
+            return;
+        }
+
         if(type == "track") {
             this.props.spotify.searchTracks(`track:${agt}`)
             .then(function(data) {
-            if(data.body.tracks.items[0]) {
-                this.setState({tracks: data.body.tracks.items[0].id}, () => {this.getTracksForPlaylist()});
-            } else {
-                alert("Track: " + agt + " was not found. Please enter a different Track.");
-            }
+                if(data.body.tracks.items[0]) {
+                    var updatedTracks = [...this.state.tracks].concat(data.body.tracks.items[0].id);
+                    var updatedUserParams = [...this.state.userParams].concat(data.body.tracks.items[0].name);
+                    this.setState({tracks: updatedTracks});
+                    this.setState({userParams: updatedUserParams});
+                } else {
+                    alert("Track: " + agt + " was not found. Please enter a different Track.");
+                }
             }.bind(this), function(err) {
             console.log('Something went wrong!', err);
             });
@@ -87,10 +96,10 @@ class GeneratePlaylist extends Component {
             this.props.spotify.searchArtists(`artist:${agt}`)
             .then(function(data) {
                 if(data.body.artists.items[0]) {
-                    // this.setState(previousState => ({
-                    //     artists: [...previousState.artists, data.body.artists.items[0].id]
-                    // }));
-                    this.setState({artists: data.body.artists.items[0].id}, () => {this.getTracksForPlaylist()})
+                    var updatedArtists = [...this.state.artists].concat(data.body.artists.items[0].id);
+                    var updatedUserParams = [...this.state.userParams].concat(data.body.artists.items[0].name);
+                    this.setState({artists: updatedArtists});
+                    this.setState({userParams: updatedUserParams});
                 } else {
                     alert("Artist: " + agt + " was not found. Please enter a different Artist.");
                 }
@@ -103,7 +112,10 @@ class GeneratePlaylist extends Component {
             this.props.spotify.getAvailableGenreSeeds()
             .then(function(data) {
                 if(data.body.genres.includes(agt)) {
-                    this.setState({genres: agt}, () => {this.getTracksForPlaylist()})
+                    var updatedGenres = [...this.state.genres].concat(agt);
+                    var updatedUserParams = [...this.state.userParams].concat(agt);
+                    this.setState({genres: updatedGenres});
+                    this.setState({userParams: updatedUserParams});
                 } else {
                     alert("Genre: " + agt + " was not found. Please enter a different Genre.");
                 }
@@ -113,33 +125,42 @@ class GeneratePlaylist extends Component {
         }
     }
 
-    setUserParams(agt, type) {
-        // this.setState(previousState => ({
-        //     userParams: [...previousState.userParams, input]
-        // }));
-        this.setState({userParams: [agt,type]});
+    clearCurrentSelection() {
+        this.setState({artists: []});
+        this.setState({genres: []});
+        this.setState({tracks: []});
+        this.setState({userParams: []});
     }
+
 
     render() {
         return (
-            <div>
-                <h1>Welcome to the Playlist Generator.</h1>
+            <div className="generate-playlist-container">
+                <h3>Welcome to the Playlist Generator.</h3>
 
                 <h5>Please enter your playlist's name.</h5>
                 <form>
                     <input type="text" onChange={e => this.setState({playlistName: e.target.value})}/>
                 </form>
 
-                <h5>Please enter your Artist/Genre/Track.</h5>
+                <h5>Please enter your Artist/Genre/Track (Limit: 5).</h5>
                 <form onSubmit={this.handleSubmit}>
-                    <PlaylistParams data={
-                        { userParams:this.state.userParams,
-                        setUserParams:this.setUserParams.bind(this)}
-                    }></PlaylistParams>
-                    <button type={"submit"}>Generate</button>
+                    <select name="agtType" id="agtType">
+                        <option value="artist">Artist</option>
+                        <option value="genre">Genre</option>
+                        <option value="track">Track</option>
+                    </select>  
+                    <input type="text" id="agtParam"/>
+                    <button type="submit">Add</button>
+                    <button className="clear-btn" type="button" onClick={() => this.clearCurrentSelection()}>Clear All</button>
                 </form>
 
-                <h2>{this.renderPlaylist()}</h2>
+                <h6>Current Selection: </h6>
+                <h6>{this.state.userParams.map(agt => (<div key={Math.random()}> {agt} </div>))}</h6>
+
+                <button className="generate-btn" onClick={() => this.getTracksForPlaylist()}>Generate</button>
+
+                <h6>{this.renderPlaylist()}</h6>
             </div> 
         );
     }

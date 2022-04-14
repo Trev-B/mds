@@ -1,0 +1,15 @@
+.generate-playlist-container button {
+    background-color: white;
+    color: black;
+    border: 5in;
+    margin-left: 10px;
+    border-radius: 30px;
+    cursor: pointer;
+    line-height: 20px;
+    font-size: 12pt;
+}
+
+.generate-playlist-container button:hover {
+    transition: 100ms transform ease-in;
+    transform: scale(1.08);
+}
