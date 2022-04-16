@@ -6,6 +6,7 @@ import TopTracks from './TopTracks';
 import GeneratePlaylist from './GeneratePlaylist';
 import Nav from "./components/Nav/Nav";
 import AnalyzePlaylist from "./components/AnalyzePlaylist/AnalyzePlaylist";
+import PlaylistBar from "./PlaylistBar";
 
 function App() {
     const CLIENT_ID = "edff2062bb8e47e48622966107b668b5";
@@ -20,6 +21,7 @@ function App() {
     const [currentPlaylist, setCurrentPlaylist] = useState({
         songs: ["rock", "jazz", "rap", "deez", "nuts"]
         });
+    const [userInfo, setUserInfo] = useState({});
     
     // const [searchKey, setSearchKey] = useState("");
     // const [artists, setArtists] = useState([]);
@@ -36,7 +38,7 @@ function App() {
     clientId: CLIENT_ID,
     });
     
-    //   
+      
     useEffect(() => {
         const hash = window.location.hash;
         let token = window.localStorage.getItem("token");
@@ -45,7 +47,7 @@ function App() {
             token = hash.substring(1).split("&").find(elem => elem.startsWith("access_token")).split("=")[1];
             
             window.location.hash = "";
-            //window.localStorage.setItem("token", token);
+            window.localStorage.setItem("token", token);
         }
         
         setToken(token);
@@ -63,6 +65,16 @@ function App() {
             }, function(err) {
             console.log('Something went wrong!', err);
             });
+
+            
+            spotifyApi.getMe()
+                .then(function(data) {
+                    //console.log('Some information about the authenticated user', data.body);
+                    setUserInfo(data.body); 
+                }, function(err) {
+                    console.log('Something went wrong!', err);
+            });
+            
 
         }
 
@@ -112,7 +124,6 @@ function App() {
 
             <header className="App-header">
 
-                
                 <h1>More Detailed Spotify</h1>
                 
                 {!token ?
@@ -124,7 +135,7 @@ function App() {
                     <div>
                         <div className="nav-bar"><Nav setCurrentPage={setCurrentPage} currentPage={currentPage}/></div>
                         {(currentPage === 1) ? 
-                        <TopTracks topTracks={topTracks}/>
+                        <TopTracks topTracks={topTracks} userInfo={userInfo}/>
                         : <div/>
                         }
                         {(currentPage === 2) ?
@@ -132,11 +143,10 @@ function App() {
                         : <div/>
                         }
                         {(currentPage === 3) ?
-                        <AnalyzePlaylist playlist={currentPlaylist}/>
+                        // <AnalyzePlaylist playlist={currentPlaylist}/>
+                        <PlaylistBar spotify={spotifyApi} userInfo={userInfo}></PlaylistBar>
                         : <div/>
                         }
-                        {/* <TopTracks topTracks={topTracks}></TopTracks>
-                        <GeneratePlaylist spotify={spotifyApi} token={token}/> */}
                         
                     </div>
                     : <div></div>

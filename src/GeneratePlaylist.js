@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PlaylistParams from './PlaylistParams';
 import './GeneratePlaylist.css';
 
 class GeneratePlaylist extends Component {
@@ -76,7 +75,7 @@ class GeneratePlaylist extends Component {
             return;
         }
 
-        if(type == "track") {
+        if(type === "track") {
             this.props.spotify.searchTracks(`track:${agt}`)
             .then(function(data) {
                 if(data.body.tracks.items[0]) {
@@ -92,7 +91,7 @@ class GeneratePlaylist extends Component {
             });
         }
 
-        if(type == "artist") {
+        if(type === "artist") {
             this.props.spotify.searchArtists(`artist:${agt}`)
             .then(function(data) {
                 if(data.body.artists.items[0]) {
@@ -108,7 +107,7 @@ class GeneratePlaylist extends Component {
             });
         }
 
-        if(type == "genre") {
+        if(type === "genre") {
             this.props.spotify.getAvailableGenreSeeds()
             .then(function(data) {
                 if(data.body.genres.includes(agt)) {

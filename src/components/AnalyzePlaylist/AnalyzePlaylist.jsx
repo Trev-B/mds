@@ -1,5 +1,4 @@
 import React from 'react'
-import PlaylistParams from '../../PlaylistParams'
 
 const AnalyzePlaylist = ({playlist}) => {
     function collectGenre(playlist){

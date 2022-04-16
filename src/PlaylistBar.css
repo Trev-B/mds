@@ -1,0 +1,70 @@
+.playlist-bar-container {
+    display: flex;
+}
+
+.user-playlists {
+    height: 600px;
+    width: 100px;
+    overflow: auto;
+    position: absolute;
+    left : 0;
+    border-style: solid;
+    border-color: white;
+}
+
+.user-playlists button {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    line-height: 20px;
+    font-size: 12pt;
+    margin-top: 5px;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.user-playlists button:hover {
+    transition: 100ms transform ease-in;
+    transform: scale(1.08);
+  }
+
+.user-playlists p {
+    line-height:0%;
+    font-size: 20px;
+}
+
+.selected-playlist {
+    height: 300px;
+    width: 600px;
+    overflow: auto;
+    position: absolute;
+    margin-left: -5px;
+    border-style: solid;
+    border-color: white;
+    left: center;
+    top: 200px;
+}
+
+.selected-playlist p{
+    font-size: 16px;
+}
+
+.analyze-playlist {
+    height: 300px;
+    width: 600px;
+    overflow: auto;
+    position: absolute;
+    margin-left: -5px;
+    border-style: solid;
+    border-color: white;
+    left: center;
+    top: 520px;
+}
+
+.analyze-playlist p {
+    font-size: 16px;
+}
+
+.analyze-playlist-content {
+    display: inline-block;
+}
