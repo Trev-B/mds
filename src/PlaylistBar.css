@@ -3,14 +3,17 @@
 }
 
 .user-playlists {
-    height: 99%;
-    width: 100px;
     overflow: auto;
-    position: absolute;
-    left: 0;
-    top: 0;
     border-style: solid;
     border-color: white;
+    flex: 0.06;
+    height: 99vh;
+
+    /* height: 99%;
+    width: 100px;
+    position: absolute;
+    left: 0;
+    top: 0; */
 }
 
 .user-playlists-header {
@@ -52,14 +55,17 @@
 }
 
 .selected-playlist {
-    height: 99%;
-    width: 200px;
     overflow: auto;
-    position: absolute;
     border-style: solid;
     border-color: white;
+    flex: 0.12;
+    height: 99vh;
+
+    /* height: 99%;
+    width: 200px;
+    position: absolute;
     left: 120px;
-    top: 0;
+    top: 0; */
 }
 
 .selected-playlist::-webkit-scrollbar {
@@ -83,7 +89,15 @@
     top: 0;
 }
 
-.analyze-playlist {
+.analyze-playlist-flex {
+    overflow: auto;
+    border-style: solid;
+    border-color: white;
+    flex: 0.82;
+    height: 99vh;
+}
+
+/* .analyze-playlist-container {
     overflow: auto;
     position: absolute;
     border-style: solid;
@@ -93,13 +107,13 @@
     display: flex;
     width: 72.5%;
     height: 99%;
-}
+} */
 
-.analyze-playlist::-webkit-scrollbar {
+/* .analyze-playlist::-webkit-scrollbar {
     display: none;
 }
 
 .playlist-artist-dist {
     display:inline-block;
     font-size: 20px;
-}
+} */

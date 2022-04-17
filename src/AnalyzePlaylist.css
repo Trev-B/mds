@@ -1,0 +1,24 @@
+/* .analyze-playlist-container {
+    overflow: auto;
+    border-style: solid;
+    border-color: white;
+    flex: 0.82; 
+    
+    position: absolute;
+    left: 340px;
+    top: 0;
+    display: flex;
+    width: 82%;
+    height: 99%;
+} */
+
+.analyze-playlist-container::-webkit-scrollbar {
+    display: none;
+}
+
+.playlist-artist-dist {
+    font-size: 20px;
+    width: 1200px;
+    height: 400px;
+    display: inline-block;
+}

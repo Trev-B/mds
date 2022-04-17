@@ -59,7 +59,6 @@ const Playlistbar = ({spotify, userInfo}) => {
             </div>
 
             {selectedPlaylistTracks.length !== 0 ?
-            <div className="analyze-playlist-content">
                 <div className="selected-playlist">
                     <div className="selected-playlist-header"> 
                         <h6>{selectedPlaylist.name}</h6>
@@ -74,12 +73,15 @@ const Playlistbar = ({spotify, userInfo}) => {
                                                         ))}
                 </div>
 
-                <div className="analyze-playlist">
+            : <div></div>}
+
+            {selectedPlaylistTracks.length !== 0 ?                   
+                <div className="analyze-playlist-flex">
                     <AnalyzePlaylist playlist={selectedPlaylistTracks}></AnalyzePlaylist>
-                </div>
-            </div> :
-            <div></div>}
-                                            
+                </div>   
+
+            : <div></div>}
+
         </div>
     );
 }

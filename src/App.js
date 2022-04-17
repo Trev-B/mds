@@ -131,7 +131,7 @@ function App() {
                         <h1>More Detailed Spotify</h1>
                         <a className="login-btn" href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPES.join("%20")}`}>Login to Spotify</a>
                     </div>
-                    : <div></div> // <button className="logout-btn" onClick={logout}>Logout</button>
+                    : <div></div>
                 }
 
                 {token ?
@@ -152,8 +152,8 @@ function App() {
                             : <div/>
                             }
                         </div>
-                        
-                        <div className="nav-bar">
+
+                        <div className="nav-bar-flex">
                             <Nav setCurrentPage={setCurrentPage} currentPage={currentPage} logout={logout}/>
                         </div>
                         
