@@ -12,14 +12,18 @@ const Nav  = ({setCurrentPage, currentPage, logout}) => {
     <div className='nav-container'>
         <div className='nav-header'>
           <h6>MDS</h6>
-          <hr></hr>
+          {/* <button>=</button> */}
         </div>
 
-        <button type="button" onClick={() => handleClick(1)}>Home</button>
-        <button type="button" onClick={() => handleClick(2)}>Create Playlist</button>
-        <button type="button" onClick={() => handleClick(3)}>Analyze Playlist</button> 
+        <hr></hr>
+        
+        <div className = 'nav-menu'>
+          <button type="button" onClick={() => handleClick(1)}>Home</button>
+          <button type="button" onClick={() => handleClick(2)}>Create Playlist</button>
+          <button type="button" onClick={() => handleClick(3)}>Analyze Playlist</button> 
 
-        <button onClick={logout}>Logout</button>
+          <button onClick={logout}>Logout</button>
+        </div>
 
     </div>
   )

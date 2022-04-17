@@ -18,7 +18,7 @@ const Playlistbar = ({spotify, userInfo}) => {
     }, [])
 
     const getPlaylists = async () => {
-        spotify.getUserPlaylists(userInfo.display_name)
+        spotify.getUserPlaylists()
             .then(function(data) {     
                 setUserPlaylists(data.body)              
                 //console.log('Retrieved playlists', data.body);
