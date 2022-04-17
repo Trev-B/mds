@@ -13,7 +13,7 @@ function App() {
     const REDIRECT_URI = "http://localhost:3000";
     const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize";
     const RESPONSE_TYPE = "token";
-    const SCOPES = ['user-read-private', 'user-read-email', 'user-top-read', 'playlist-modify-public'];
+    const SCOPES = ['user-read-private', 'user-read-email', 'user-top-read', 'playlist-modify-public', 'playlist-read-collaborative', 'playlist-read-private', 'playlist-modify-private', 'user-library-read'];
 
     const [token, setToken] = useState("");
     const [topTracks, setTopTracks] = useState([]);
