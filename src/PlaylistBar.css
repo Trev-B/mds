@@ -3,24 +3,43 @@
 }
 
 .user-playlists {
-    height: 600px;
+    height: 99%;
     width: 100px;
     overflow: auto;
     position: absolute;
-    left : 0;
+    left: 0;
+    top: 0;
     border-style: solid;
     border-color: white;
 }
 
+.user-playlists-header {
+    position: sticky;
+    top: 0;
+    background-color: black; 
+}
+
+.user-playlists-header h6 {
+    margin: 0;
+    position: sticky;
+    top: 0;
+}
+
+.user-playlists::-webkit-scrollbar {
+    display: none;
+}
+
 .user-playlists button {
-    background-color: white;
-    color: black;
+    background-color: black;
+    color: white;
     cursor: pointer;
     line-height: 20px;
     font-size: 12pt;
     margin-top: 5px;
     margin-right: 5px;
     margin-left: 5px;
+    border-style: solid;
+    border-color: white;
 }
 
 .user-playlists button:hover {
@@ -29,42 +48,58 @@
   }
 
 .user-playlists p {
-    line-height:0%;
     font-size: 20px;
 }
 
 .selected-playlist {
-    height: 300px;
-    width: 600px;
+    height: 99%;
+    width: 200px;
     overflow: auto;
     position: absolute;
-    margin-left: -5px;
     border-style: solid;
     border-color: white;
-    left: center;
-    top: 200px;
+    left: 120px;
+    top: 0;
+}
+
+.selected-playlist::-webkit-scrollbar {
+    display: none;
 }
 
 .selected-playlist p{
-    font-size: 16px;
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+.selected-playlist-header {
+    position: sticky;
+    top: 0;
+    background-color: black; 
+}
+
+.selected-playlist-header h6 {
+    margin: 0;
+    position: sticky;
+    top: 0;
 }
 
 .analyze-playlist {
-    height: 300px;
-    width: 600px;
     overflow: auto;
     position: absolute;
-    margin-left: -5px;
     border-style: solid;
     border-color: white;
-    left: center;
-    top: 520px;
+    left: 340px;
+    top: 0;
+    display: flex;
+    width: 72.5%;
+    height: 99%;
 }
 
-.analyze-playlist p {
-    font-size: 16px;
+.analyze-playlist::-webkit-scrollbar {
+    display: none;
 }
 
-.analyze-playlist-content {
-    display: inline-block;
+.playlist-artist-dist {
+    display:inline-block;
+    font-size: 20px;
 }

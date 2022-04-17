@@ -45,9 +45,12 @@ const Playlistbar = ({spotify, userInfo}) => {
         <div className="playlist-bar-container">
             
             <div className="user-playlists">
-                <p>Playlists</p>
+                <div className="user-playlists-header">
+                    <h6>Playlists</h6>
+                    <hr></hr>
+                </div>
                 {userPlaylists.items.map(playlist =>(  <button onClick= {() => handlePlaylistClick(playlist)} key={playlist.id}>
-                                                            <div className="user-playlists-names" >
+                                                            <div className="user-playlists-names">
                                                                 {playlist.images.length ? <img width={"100%"} src={playlist.images[0].url} alt=""/> : <div>No Image</div>}
                                                                 {playlist.name}
                                                             </div>
@@ -55,19 +58,27 @@ const Playlistbar = ({spotify, userInfo}) => {
                                                     ))}
             </div>
 
+            {selectedPlaylistTracks.length !== 0 ?
             <div className="analyze-playlist-content">
                 <div className="selected-playlist">
-                    <h3>{selectedPlaylist.name}</h3>
-                    {selectedPlaylistTracks.map(track =>(   <p className="selected-playlist-tracks" key={track.track.id}>
-                                                                {track.track.name}
-                                                            </p>
+                    <div className="selected-playlist-header"> 
+                        <h6>{selectedPlaylist.name}</h6>
+                        <hr></hr>
+                    </div>
+                    {selectedPlaylistTracks.map(track =>(   <div key={track.track.id}>
+                                                                <p className="selected-playlist-tracks" key={track.track.id}>
+                                                                    {track.track.name}
+                                                                </p>
+                                                                <hr></hr>
+                                                            </div>
                                                         ))}
                 </div>
 
                 <div className="analyze-playlist">
                     <AnalyzePlaylist playlist={selectedPlaylistTracks}></AnalyzePlaylist>
                 </div>
-            </div>
+            </div> :
+            <div></div>}
                                             
         </div>
     );

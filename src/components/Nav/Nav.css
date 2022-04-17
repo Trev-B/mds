@@ -1,20 +1,28 @@
-.nav-container {
+.nav-bar {
+    background-color: #040404;
+    width: 20vh;
+}
+
+/* .nav-container {
     background-color: transparent;
     border: 5in;
-}
+} */
 
 .nav-container button {
     background-color: white;
     color: black;
-    border: 5in;
-    margin-left: 10px;
     border-radius: 30px;
     cursor: pointer;
     line-height: 20px;
-    font-size: 12pt;
+    font-size: 11pt;
+    width: 120px;
 }
 
 .nav-container button:hover {
     transition: 100ms transform ease-in;
     transform: scale(1.08);
 }
+
+/* .nav-header {
+   
+} */

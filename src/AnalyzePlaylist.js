@@ -1,31 +1,7 @@
 import React from 'react';
 import {useEffect, useState} from "react";
 //import { PieChart, Pie, Sector, Cell, ResponsiveContainer } from 'recharts';
-
-/* Test data for recharts */
-// const data = [
-//     { name: 'Group A', value: 400 },
-//     { name: 'Group B', value: 300 },
-//     { name: 'Group C', value: 300 },
-//     { name: 'Group D', value: 200 },
-//   ];
-  
-// const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
-  
-// const RADIAN = Math.PI / 180;
-
-// const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
-//     const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
-//     const x = cx + radius * Math.cos(-midAngle * RADIAN);
-//     const y = cy + radius * Math.sin(-midAngle * RADIAN);
-  
-//     return (
-//       <text x={x} y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central">
-//         {`${(percent * 100).toFixed(0)}%`}
-//       </text>
-//     );
-// };
-/* Test data for recharts */
+import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 const Analyzeplaylist = ({playlist}) => {
     const [artistDistribution, setArtistDistribution] = useState([]);
@@ -61,33 +37,80 @@ const Analyzeplaylist = ({playlist}) => {
         }       
     }
 
+    const CustomTooltip = ({ label }) => {
+        if ( label ) {
+          return (
+                <div className="custom-tooltip">
+                <p>Artist: {label}</p>
+                <p>Count: {getCount(label)}</p>
+                </div>
+            );
+        } else {
+            return (
+                <div className="custom-tooltip">
+                  <p>No Data</p>
+                </div>
+            );
+        }
+    }
+
+    const getCount = (label) => {
+        var index = artistDistribution.findIndex(artist => artist.name === label);
+        if(index === -1) 
+            return -1;
+        else
+            return artistDistribution[index].value;
+    };
+
     return (
-        <div>
+        <div className="analyze-playlist-container">
             <div className="playlist-artist-dist">
-                <h3>Artist Distribution</h3>
-                {displayArtistDist()} 
+                {/* <h3>Artist Distribution</h3> */}
+                {/* {displayArtistDist()}  */}
+            
+                <BarChart width={1300} height={400} data={artistDistribution} margin={{top: 10, right: 50,left: 0,  bottom: 5}} >
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="name" angle={90} interval={0} dy={20} hide={"false"}/>
+                    <YAxis />
+                    <Legend/>
+                    <Bar dataKey="value" fill="#8884d8" />
+                    <Tooltip content={<CustomTooltip />} />
+                </BarChart>
+
+                <BarChart width={1300} height={400} data={artistDistribution} margin={{top: 10, right: 50,left: 0,  bottom: 5}} >
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="name" angle={90} interval={0} dy={20} hide={"false"}/>
+                    <YAxis />
+                    <Legend/>
+                    <Bar dataKey="value" fill="#8884d8" />
+                    <Tooltip content={<CustomTooltip />} />
+                </BarChart>
+
+                <BarChart width={1300} height={400} data={artistDistribution} margin={{top: 10, right: 50,left: 0,  bottom: 5}} >
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="name" angle={90} interval={0} dy={20} hide={"false"}/>
+                    <YAxis />
+                    <Legend/>
+                    <Bar dataKey="value" fill="#8884d8" />
+                    <Tooltip content={<CustomTooltip />} />
+                </BarChart>
+
             </div>
+
+            <div className="playlist-genre-dist">
+                <BarChart width={1300} height={400} data={artistDistribution} margin={{top: 10, right: 50,left: 0,  bottom: 5}} >
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="name" angle={90} interval={0} dy={20} hide={"false"}/>
+                    <YAxis />
+                    <Legend/>
+                    <Bar dataKey="value" fill="#8884d8" />
+                    <Tooltip content={<CustomTooltip />} />
+                </BarChart>
+            </div>
+
         </div>
     );
 }
 
 export default Analyzeplaylist;
-
-/* Used for recharts */
-// <PieChart width={400} height={400}>
-                //     <Pie
-                //         data={artistDistribution}
-                //         cx="50%"
-                //         cy="50%"
-                //         labelLine={false}
-                //         label={renderCustomizedLabel}
-                //         outerRadius={80}
-                //         fill="#8884d8"
-                //         dataKey="value"
-                //     >
-                //         {data.map((entry, index) => (
-                //         <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                //         ))}
-                //     </Pie>
-                // </PieChart> :
                 

@@ -122,31 +122,40 @@ function App() {
     return (
         <div className="App">
 
-            <header className="App-header">
+            {/* <header className="App-header"> */}
 
-                <h1>More Detailed Spotify</h1>
+                {/* <h1>More Detailed Spotify</h1> */}
                 
                 {!token ?
-                     <a className="login-btn" href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPES.join("%20")}`}>Login to Spotify</a>
-                    : <button className="logout-btn" onClick={logout}>Logout</button>
+                    <div className="login-screen">
+                        <h1>More Detailed Spotify</h1>
+                        <a className="login-btn" href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPES.join("%20")}`}>Login to Spotify</a>
+                    </div>
+                    : <div></div> // <button className="logout-btn" onClick={logout}>Logout</button>
                 }
 
                 {token ?
-                    <div>
-                        <div className="nav-bar"><Nav setCurrentPage={setCurrentPage} currentPage={currentPage}/></div>
-                        {(currentPage === 1) ? 
-                        <TopTracks topTracks={topTracks} userInfo={userInfo}/>
-                        : <div/>
-                        }
-                        {(currentPage === 2) ?
-                        <GeneratePlaylist spotify={spotifyApi} token={token}/>
-                        : <div/>
-                        }
-                        {(currentPage === 3) ?
-                        // <AnalyzePlaylist playlist={currentPlaylist}/>
-                        <PlaylistBar spotify={spotifyApi} userInfo={userInfo}></PlaylistBar>
-                        : <div/>
-                        }
+                    <div className="main-content">
+
+                        <div className="current-page">
+                            {(currentPage === 1) ? 
+                            <TopTracks topTracks={topTracks} userInfo={userInfo}/>
+                            : <div/>
+                            }
+                            {(currentPage === 2) ?
+                            <GeneratePlaylist spotify={spotifyApi} token={token}/>
+                            : <div/>
+                            }
+                            {(currentPage === 3) ?
+                            // <AnalyzePlaylist playlist={currentPlaylist}/>
+                            <PlaylistBar spotify={spotifyApi} userInfo={userInfo}></PlaylistBar>
+                            : <div/>
+                            }
+                        </div>
+                        
+                        <div className="nav-bar">
+                            <Nav setCurrentPage={setCurrentPage} currentPage={currentPage} logout={logout}/>
+                        </div>
                         
                     </div>
                     : <div></div>
@@ -162,7 +171,7 @@ function App() {
                 }
                 {renderArtists()} */}
 
-            </header>
+            {/* </header> */}
         </div>
     );
 }
