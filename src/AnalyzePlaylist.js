@@ -67,7 +67,7 @@ const Analyzeplaylist = ({playlist}) => {
         <div className="analyze-playlist-container">
             <div className="playlist-artist-dist">
             
-                    <ResponsiveContainer>
+                    <ResponsiveContainer width="100%" height={400}>
                         <BarChart data={artistDistribution} margin={{top: 10, right: 50,left: 0,  bottom: 5}} >
                             <CartesianGrid strokeDasharray="3 3" />
                             <XAxis dataKey="name" angle={90} interval={0} dy={20} hide={"false"}/>
@@ -78,7 +78,7 @@ const Analyzeplaylist = ({playlist}) => {
                         </BarChart>
                     </ResponsiveContainer>
 
-                    <ResponsiveContainer>
+                    <ResponsiveContainer width="100%" height={400}>
                         <BarChart data={artistDistribution} margin={{top: 10, right: 50,left: 0,  bottom: 5}} >
                             <CartesianGrid strokeDasharray="3 3" />
                             <XAxis dataKey="name" angle={90} interval={0} dy={20} hide={"false"}/>
@@ -89,7 +89,7 @@ const Analyzeplaylist = ({playlist}) => {
                         </BarChart>
                     </ResponsiveContainer>
 
-                    <ResponsiveContainer>
+                    <ResponsiveContainer width="100%" height={400}>
                         <BarChart data={artistDistribution} margin={{top: 10, right: 50,left: 0,  bottom: 5}} >
                             <CartesianGrid strokeDasharray="3 3" />
                             <XAxis dataKey="name" angle={90} interval={0} dy={20} hide={"false"}/>
@@ -100,7 +100,7 @@ const Analyzeplaylist = ({playlist}) => {
                         </BarChart>
                     </ResponsiveContainer>
 
-                    <ResponsiveContainer>
+                    <ResponsiveContainer width="100%" height={400}>
                         <BarChart data={artistDistribution} margin={{top: 10, right: 50,left: 0,  bottom: 5}} >
                             <CartesianGrid strokeDasharray="3 3" />
                             <XAxis dataKey="name" angle={90} interval={0} dy={20} hide={"false"}/>
@@ -111,16 +111,16 @@ const Analyzeplaylist = ({playlist}) => {
                         </BarChart>
                     </ResponsiveContainer>
 
-                <ResponsiveContainer>
-                    <BarChart data={artistDistribution} margin={{top: 10, right: 50,left: 0,  bottom: 5}} >
-                        <CartesianGrid strokeDasharray="3 3" />
-                        <XAxis dataKey="name" angle={90} interval={0} dy={20} hide={"false"}/>
-                        <YAxis />
-                        <Legend/>
-                        <Bar dataKey="value" fill="#8884d8" />
-                        <Tooltip content={<CustomTooltip />} />
-                    </BarChart>
-                </ResponsiveContainer>
+                    <ResponsiveContainer width="100%" height={400}>
+                        <BarChart data={artistDistribution} margin={{top: 10, right: 50,left: 0,  bottom: 5}} >
+                            <CartesianGrid strokeDasharray="3 3" />
+                            <XAxis dataKey="name" angle={90} interval={0} dy={20} hide={"false"}/>
+                            <YAxis />
+                            <Legend/>
+                            <Bar dataKey="value" fill="#8884d8" />
+                            <Tooltip content={<CustomTooltip />} />
+                        </BarChart>
+                    </ResponsiveContainer>
 
             </div>
 
