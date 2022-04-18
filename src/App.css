@@ -31,49 +31,44 @@
 
 .main-content {
   display: flex;
-  height: 100vh;
+  height: 95vh;
   width: 100%;
 }
 
 .current-page {
   color: white;
   background: linear-gradient(rgb(91, 87, 115), rgba(0, 0, 0, 1));
-  flex: 0.9;
+  flex: 1;
 }
 
 .nav-bar-flex {
+  background-color: #323232;
   flex: 0.1;
+  height: 95vh;
+ 
 }
 
-
-
-/* .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: inline-block;
-  border: #282c34;
-  flex-direction: column;
+.App-header {
+  height: 5vh;
+  background-color: #323232;
+  display: flex;
+  font-size: 20px;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-} */
-
-/* .logout-btn {
-  line-height: 22px;
-  font-size: 12pt;
-  background-color: white;
-  color: black;
-  margin-top: 10px;
-  margin-right: 10px;
-  position:absolute;
-  top:0;
-  right:0;
-  cursor: pointer;
-  border-radius: 30px;
 }
 
-.logout-btn:hover {
+.App-header button {
+  background-color: #323232;
+  color: white;
+  padding: 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  font-size: 40px;
+}
+
+.App-header button:hover {
   transition: 100ms transform ease-in;
   transform: scale(1.08);
-} */
+}

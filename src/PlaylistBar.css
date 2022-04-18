@@ -4,16 +4,13 @@
 
 .user-playlists {
     overflow: auto;
+    flex: 0.06;
+    height: 95vh;
     border-style: solid;
     border-color: white;
-    flex: 0.06;
-    height: 99vh;
-
-    /* height: 99%;
-    width: 100px;
-    position: absolute;
-    left: 0;
-    top: 0; */
+    border-top: 0;
+    border-left: 0;
+    border-bottom: 0;
 }
 
 .user-playlists-header {
@@ -58,14 +55,11 @@
     overflow: auto;
     border-style: solid;
     border-color: white;
+    border-top: 0;
+    border-left: 0;
+    border-bottom: 0;
     flex: 0.12;
-    height: 99vh;
-
-    /* height: 99%;
-    width: 200px;
-    position: absolute;
-    left: 120px;
-    top: 0; */
+    height: 95vh;
 }
 
 .selected-playlist::-webkit-scrollbar {
@@ -91,29 +85,6 @@
 
 .analyze-playlist-flex {
     overflow: auto;
-    border-style: solid;
-    border-color: white;
     flex: 0.82;
-    height: 99vh;
+    height: 95vh;
 }
-
-/* .analyze-playlist-container {
-    overflow: auto;
-    position: absolute;
-    border-style: solid;
-    border-color: white;
-    left: 340px;
-    top: 0;
-    display: flex;
-    width: 72.5%;
-    height: 99%;
-} */
-
-/* .analyze-playlist::-webkit-scrollbar {
-    display: none;
-}
-
-.playlist-artist-dist {
-    display:inline-block;
-    font-size: 20px;
-} */

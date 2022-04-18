@@ -22,15 +22,11 @@ function App() {
         songs: ["rock", "jazz", "rap", "deez", "nuts"]
         });
     const [userInfo, setUserInfo] = useState({});
+    const [navVisible, setNavVisible] = useState(true);
     
     // const [searchKey, setSearchKey] = useState("");
     // const [artists, setArtists] = useState([]);
     // const [spotify, setSpotify] = useState();
-
-    // const getToken = () => {
-    //     let urlParams = new URLSearchParams(window.location.hash.replace("#","?"));
-    //     let token = urlParams.get('access_token');
-    // }
 
     // Setting credentials can be done in the wrapper's constructor, or using the API object's setters.
     var spotifyApi = new SpotifyWebApi({
@@ -38,7 +34,6 @@ function App() {
     clientId: CLIENT_ID,
     });
     
-      
     useEffect(() => {
         const hash = window.location.hash;
         let token = window.localStorage.getItem("token");
@@ -51,19 +46,17 @@ function App() {
         }
         
         setToken(token);
-        //setSpotify(spotifyApi);
         spotifyApi.setAccessToken(token);
-        // console.log(spotifyApi);
 
         if(token) {
 
             /* Get a User’s Top Tracks*/
             spotifyApi.getMyTopTracks()
-            .then(function(data) {
-            let topTracks = data.body.items;
-            setTopTracks(topTracks);
-            }, function(err) {
-            console.log('Something went wrong!', err);
+                .then(function(data) {
+                    let topTracks = data.body.items;
+                    setTopTracks(topTracks);
+                }, function(err) {
+                    console.log('Something went wrong!', err);
             });
 
             
@@ -75,7 +68,6 @@ function App() {
                     console.log('Something went wrong!', err);
             });
             
-
         }
 
     }, [])
@@ -85,95 +77,103 @@ function App() {
         window.localStorage.removeItem("token");
     }
 
-    // const searchArtists = async (e) => {
-    //     e.preventDefault()
-    //     const {data} = await axios.get("https://api.spotify.com/v1/search", {
-    //         headers: {
-    //             Authorization: `Bearer ${token}`
-    //         },
-    //         params: {
-    //             q: searchKey,
-    //             type: "artist"
-    //         }
-    //     })
-
-    //     setArtists(data.artists.items)
-    // }
-
-    // const renderArtists = () => {
-    //     return artists.map(artist => (
-    //         <div key={artist.id}>
-    //             {artist.images.length ? <img width={"100%"} src={artist.images[0].url} alt=""/> : <div>No Image</div>}
-    //             {artist.name}
-    //         </div>
-    //     ))
-    // }
-
-    // const renderTopTracks = () => {
-    //     return topTracks.map(track => (
-    //         <div key={track.id}>
-    //             {/* {artist.images.length ? <img width={"100%"} src={artist.images[0].url} alt=""/> : <div>No Image</div>} */}
-    //             {track.name}
-    //         </div>
-    //     ))
-    // }
-
-
     return (
         <div className="App">
 
-            {/* <header className="App-header"> */}
-
-                {/* <h1>More Detailed Spotify</h1> */}
-                
                 {!token ?
                     <div className="login-screen">
                         <h1>More Detailed Spotify</h1>
                         <a className="login-btn" href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPES.join("%20")}`}>Login to Spotify</a>
                     </div>
-                    : <div></div>
-                }
 
-                {token ?
-                    <div className="main-content">
+                    : <div className="App-container">
 
-                        <div className="current-page">
-                            {(currentPage === 1) ? 
-                            <TopTracks topTracks={topTracks} userInfo={userInfo}/>
-                            : <div/>
-                            }
-                            {(currentPage === 2) ?
-                            <GeneratePlaylist spotify={spotifyApi} token={token}/>
-                            : <div/>
-                            }
-                            {(currentPage === 3) ?
-                            // <AnalyzePlaylist playlist={currentPlaylist}/>
-                            <PlaylistBar spotify={spotifyApi} userInfo={userInfo}></PlaylistBar>
-                            : <div/>
-                            }
+                        <div className="App-header">
+                            <button onClick= {() => setNavVisible(!navVisible)} className=""> ≡ </button>
+                            <p>More Detailed Spotify</p>        
                         </div>
 
-                        <div className="nav-bar-flex">
-                            <Nav setCurrentPage={setCurrentPage} currentPage={currentPage} logout={logout}/>
+                        <div className="main-content">
+
+                            {navVisible ?
+                            <div className="nav-bar-flex">
+                                <Nav setCurrentPage={setCurrentPage} currentPage={currentPage} logout={logout}/>
+                            </div> 
+                            : <div/>
+                            }
+
+                            <div className="current-page">
+                                {(currentPage === 1) ? 
+                                <TopTracks topTracks={topTracks} userInfo={userInfo}/>
+                                : <div/>
+                                }
+                                {(currentPage === 2) ?
+                                <GeneratePlaylist spotify={spotifyApi} token={token}/>
+                                : <div/>
+                                }
+                                {(currentPage === 3) ?
+                                // <AnalyzePlaylist playlist={currentPlaylist}/>
+                                <PlaylistBar spotify={spotifyApi} userInfo={userInfo}></PlaylistBar>
+                                : <div/>
+                                }
+                            </div>
+
                         </div>
-                        
+
                     </div>
-                    : <div></div>
-                }
-
-                {/* {token ?
-                    <form onSubmit={searchArtists}>
-                        <input type="text" onChange={e => setSearchKey(e.target.value)}/>
-                        <button type={"submit"}>Search</button>
-                    </form>
-
-                    : <h2>Please login</h2>
-                }
-                {renderArtists()} */}
-
-            {/* </header> */}
+                }        
         </div>
     );
 }
 
 export default App;
+
+
+{/* {token ?
+                <form onSubmit={searchArtists}>
+                    <input type="text" onChange={e => setSearchKey(e.target.value)}/>
+                    <button type={"submit"}>Search</button>
+                </form>
+
+                : <h2>Please login</h2>
+            }
+            {renderArtists()} */}
+
+
+// const searchArtists = async (e) => {
+//     e.preventDefault()
+//     const {data} = await axios.get("https://api.spotify.com/v1/search", {
+//         headers: {
+//             Authorization: `Bearer ${token}`
+//         },
+//         params: {
+//             q: searchKey,
+//             type: "artist"
+//         }
+//     })
+
+//     setArtists(data.artists.items)
+// }
+
+// const renderArtists = () => {
+//     return artists.map(artist => (
+//         <div key={artist.id}>
+//             {artist.images.length ? <img width={"100%"} src={artist.images[0].url} alt=""/> : <div>No Image</div>}
+//             {artist.name}
+//         </div>
+//     ))
+// }
+
+// const renderTopTracks = () => {
+//     return topTracks.map(track => (
+//         <div key={track.id}>
+//             {/* {artist.images.length ? <img width={"100%"} src={artist.images[0].url} alt=""/> : <div>No Image</div>} */}
+//             {track.name}
+//         </div>
+//     ))
+// }
+
+// const getToken = () => {
+//     let urlParams = new URLSearchParams(window.location.hash.replace("#","?"));
+//     let token = urlParams.get('access_token');
+// }
