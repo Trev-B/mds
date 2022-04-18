@@ -45,7 +45,6 @@
   background-color: #323232;
   flex: 0.1;
   height: 95vh;
- 
 }
 
 .App-header {
@@ -60,12 +59,11 @@
 .App-header button {
   background-color: #323232;
   color: white;
-  padding: 10px 10px;
-  text-align: center;
-  text-decoration: none;
+  padding-right: 10px ;
   border: none;
   cursor: pointer;
   font-size: 40px;
+  height: 90%;
 }
 
 .App-header button:hover {
