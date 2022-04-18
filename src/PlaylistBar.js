@@ -49,38 +49,38 @@ const Playlistbar = ({spotify, userInfo}) => {
                     <h6>Playlists</h6>
                     <hr></hr>
                 </div>
-                {userPlaylists.items.map(playlist =>(  <button onClick= {() => handlePlaylistClick(playlist)} key={playlist.id}>
-                                                            <div className="user-playlists-names">
-                                                                {playlist.images.length ? <img width={"100%"} src={playlist.images[0].url} alt=""/> : <div>No Image</div>}
-                                                                {playlist.name}
-                                                            </div>
-                                                        </button>
+                {userPlaylists.items.map(playlist =>(  <div className="user-playlist" key={playlist.id}>
+                                                            <button onClick= {() => handlePlaylistClick(playlist)} key={playlist.id}>
+                                                                    {playlist.images.length ? <img width={"100%"} src={playlist.images[0].url} alt=""/> : <div>No Image</div>}
+                                                                    {playlist.name}  
+                                                            </button>
+                                                        </div>
                                                     ))}
             </div>
 
             {selectedPlaylistTracks.length !== 0 ?
-                <div className="selected-playlist">
-                    <div className="selected-playlist-header"> 
-                        <h6>{selectedPlaylist.name}</h6>
-                        <hr></hr>
-                    </div>
-                    {selectedPlaylistTracks.map(track =>(   <div key={track.track.id}>
-                                                                <p className="selected-playlist-tracks" key={track.track.id}>
-                                                                    {track.track.name}
-                                                                </p>
-                                                                <hr></hr>
-                                                            </div>
-                                                        ))}
+            <div className="selected-playlist">
+                <div className="selected-playlist-header"> 
+                    <h6>{selectedPlaylist.name}</h6>
+                    <hr></hr>
                 </div>
+                {selectedPlaylistTracks.map(track =>(   <div key={track.track.id}>
+                                                            <p className="selected-playlist-tracks" key={track.track.id}>
+                                                                {track.track.name}
+                                                            </p>
+                                                            <hr></hr>
+                                                        </div>
+                                                    ))}
+            </div>
 
-            : <div></div>}
+            : <div/>}
 
             {selectedPlaylistTracks.length !== 0 ?                   
-                <div className="analyze-playlist-flex">
-                    <AnalyzePlaylist playlist={selectedPlaylistTracks}></AnalyzePlaylist>
-                </div>   
+            <div className="analyze-playlist-flex">
+                <AnalyzePlaylist playlist={selectedPlaylistTracks}></AnalyzePlaylist>
+            </div>   
 
-            : <div></div>}
+            : <div/>}
 
         </div>
     );

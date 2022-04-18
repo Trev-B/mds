@@ -19,56 +19,44 @@
     background-color: black; 
 }
 
-.user-playlists-header h6 {
-    margin: 0;
-    position: sticky;
-    top: 0;
-}
-
 .user-playlists::-webkit-scrollbar {
     display: none;
 }
 
-.user-playlists button {
+.user-playlist {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.user-playlist button {
     background-color: black;
     color: white;
     cursor: pointer;
     line-height: 20px;
-    font-size: 12pt;
-    margin-top: 5px;
-    margin-right: 5px;
-    margin-left: 5px;
+    font-size: 1vw;
+    margin-top: 10px;
+    margin-right: 9px;
+    margin-left: 10px;
     border-style: solid;
     border-color: white;
 }
 
-.user-playlists button:hover {
+.user-playlist button:hover {
     transition: 100ms transform ease-in;
     transform: scale(1.08);
-  }
-
-.user-playlists p {
-    font-size: 20px;
 }
 
 .selected-playlist {
     overflow: auto;
+    flex: 0.12;
+    height: 95vh;
     border-style: solid;
     border-color: white;
     border-top: 0;
     border-left: 0;
     border-bottom: 0;
-    flex: 0.12;
-    height: 95vh;
-}
-
-.selected-playlist::-webkit-scrollbar {
-    display: none;
-}
-
-.selected-playlist p{
-    font-size: 14px;
-    margin-left: 5px;
 }
 
 .selected-playlist-header {
@@ -77,10 +65,12 @@
     background-color: black; 
 }
 
-.selected-playlist-header h6 {
-    margin: 0;
-    position: sticky;
-    top: 0;
+.selected-playlist::-webkit-scrollbar {
+    display: none;
+}
+
+.selected-playlist p{
+    font-size: 1vw;
 }
 
 .analyze-playlist-flex {
