@@ -1,16 +1,17 @@
 .playlist-bar-container {
     display: flex;
+    height: 95vh;
 }
 
 .user-playlists {
+    flex: 0.10;
     overflow: auto;
-    flex: 0.06;
-    height: 95vh;
     border-style: solid;
     border-color: white;
     border-top: 0;
     border-left: 0;
     border-bottom: 0;
+    border-right: 0;
 }
 
 .user-playlists-header {
@@ -19,9 +20,6 @@
     background-color: black; 
 }
 
-.user-playlists::-webkit-scrollbar {
-    display: none;
-}
 
 .user-playlist {
     display: flex;
@@ -48,15 +46,15 @@
     transform: scale(1.08);
 }
 
+.analyze-playlist-flex {
+    overflow: auto;
+    flex: 0.80;
+    
+}
+
 .selected-playlist {
     overflow: auto;
-    flex: 0.12;
-    height: 95vh;
-    border-style: solid;
-    border-color: white;
-    border-top: 0;
-    border-left: 0;
-    border-bottom: 0;
+    flex: 0.10; 
 }
 
 .selected-playlist-header {
@@ -65,16 +63,6 @@
     background-color: black; 
 }
 
-.selected-playlist::-webkit-scrollbar {
-    display: none;
-}
-
 .selected-playlist p{
     font-size: 1vw;
-}
-
-.analyze-playlist-flex {
-    overflow: auto;
-    flex: 0.82;
-    height: 95vh;
 }

@@ -9,7 +9,9 @@ const Analyzeplaylist = ({playlist}) => {
 
     useEffect(() => {
     
-        if(playlist.length !== 0) {calcArtistDistribution(playlist)}
+        if(playlist.length !== 0) {
+            calcArtistDistribution(playlist);
+        }
         
     }, [playlist])
 
@@ -67,6 +69,7 @@ const Analyzeplaylist = ({playlist}) => {
         <div className="analyze-playlist-container">
             <div className="playlist-artist-dist">
             
+                    <h6>Artist Distribution</h6>
                     <ResponsiveContainer width="100%" height={400}>
                         <BarChart data={artistDistribution} margin={{top: 10, right: 50,left: 0,  bottom: 5}} >
                             <CartesianGrid strokeDasharray="3 3" />
@@ -78,6 +81,7 @@ const Analyzeplaylist = ({playlist}) => {
                         </BarChart>
                     </ResponsiveContainer>
 
+                    <h6>Artist Distribution</h6>
                     <ResponsiveContainer width="100%" height={400}>
                         <BarChart data={artistDistribution} margin={{top: 10, right: 50,left: 0,  bottom: 5}} >
                             <CartesianGrid strokeDasharray="3 3" />
@@ -89,6 +93,7 @@ const Analyzeplaylist = ({playlist}) => {
                         </BarChart>
                     </ResponsiveContainer>
 
+                    <h6>Artist Distribution</h6>
                     <ResponsiveContainer width="100%" height={400}>
                         <BarChart data={artistDistribution} margin={{top: 10, right: 50,left: 0,  bottom: 5}} >
                             <CartesianGrid strokeDasharray="3 3" />
@@ -100,6 +105,7 @@ const Analyzeplaylist = ({playlist}) => {
                         </BarChart>
                     </ResponsiveContainer>
 
+                    <h6>Artist Distribution</h6>
                     <ResponsiveContainer width="100%" height={400}>
                         <BarChart data={artistDistribution} margin={{top: 10, right: 50,left: 0,  bottom: 5}} >
                             <CartesianGrid strokeDasharray="3 3" />
@@ -111,6 +117,7 @@ const Analyzeplaylist = ({playlist}) => {
                         </BarChart>
                     </ResponsiveContainer>
 
+                    <h6>Artist Distribution</h6>
                     <ResponsiveContainer width="100%" height={400}>
                         <BarChart data={artistDistribution} margin={{top: 10, right: 50,left: 0,  bottom: 5}} >
                             <CartesianGrid strokeDasharray="3 3" />

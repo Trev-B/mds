@@ -6,7 +6,7 @@
 }
 
 .login-screen {
-  min-height: 100vh;
+  height: 100vh;
   display: grid;
   place-items: center;
   color: black;
@@ -21,7 +21,6 @@
   display: inline-block;
   cursor: pointer;
   border-radius: 30px;
-  font-size: 30px;
 }
 
 .login-btn:hover {
@@ -33,37 +32,41 @@
   display: flex;
   height: 95vh;
   width: 100%;
+  margin-top: 5vh;
 }
 
 .current-page {
   color: white;
   background: linear-gradient(rgb(91, 87, 115), rgba(0, 0, 0, 1));
   flex: 1;
+  overflow: hidden;
 }
 
 .nav-bar-flex {
   background-color: #323232;
   flex: 0.1;
-  height: 95vh;
+  overflow: auto;
+  min-width: 130px;
 }
 
 .App-header {
-  height: 5vh;
   background-color: #323232;
   display: flex;
-  font-size: 20px;
   flex-direction: row;
   align-items: center;
+  position: fixed; 
+  top: 0;
+  width: 100%;
+  height: 5vh;
 }
 
 .App-header button {
   background-color: #323232;
   color: white;
-  padding-right: 10px ;
+  margin-right: 1em;
+  margin-left: 1em;
   border: none;
   cursor: pointer;
-  font-size: 40px;
-  height: 90%;
 }
 
 .App-header button:hover {
