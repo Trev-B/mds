@@ -20,8 +20,33 @@
     background-color: black; 
 }
 
+.playlist-btn {
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+}
 
-.user-playlist {
+.playlist-btn:hover {
+    background-color: rgb(16, 16, 16);
+} 
+
+.analyze-playlist-flex {
+    overflow: auto;
+    flex: 0.80;
+}
+
+.selected-playlist {
+    overflow: auto;
+    flex: 0.10; 
+}
+
+.selected-playlist-header {
+    position: sticky;
+    top: 0;
+    background-color: black; 
+}
+
+/* .user-playlist {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -44,25 +69,4 @@
 .user-playlist button:hover {
     transition: 100ms transform ease-in;
     transform: scale(1.08);
-}
-
-.analyze-playlist-flex {
-    overflow: auto;
-    flex: 0.80;
-    
-}
-
-.selected-playlist {
-    overflow: auto;
-    flex: 0.10; 
-}
-
-.selected-playlist-header {
-    position: sticky;
-    top: 0;
-    background-color: black; 
-}
-
-.selected-playlist p{
-    font-size: 1vw;
-}
+} */

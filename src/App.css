@@ -13,8 +13,8 @@
 }
 
 .login-btn {
-  background-color: white;
-  color: black;
+  background-color: black;
+  color: white;
   padding: 14px 25px;
   text-align: center;
   text-decoration: none;
@@ -61,7 +61,7 @@
 }
 
 .App-header button {
-  background-color: #323232;
+  background-color: transparent;
   color: white;
   margin-right: 1em;
   margin-left: 1em;

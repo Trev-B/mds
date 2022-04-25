@@ -7,13 +7,14 @@ import GeneratePlaylist from './GeneratePlaylist';
 import Nav from "./components/Nav/Nav";
 import AnalyzePlaylist from "./components/AnalyzePlaylist/AnalyzePlaylist";
 import PlaylistBar from "./PlaylistBar";
+import FormatAlignJustifyIcon from '@material-ui/icons/FormatAlignJustify';
 
 function App() {
     const CLIENT_ID = "edff2062bb8e47e48622966107b668b5";
     const REDIRECT_URI = "http://localhost:3000";
     const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize";
     const RESPONSE_TYPE = "token";
-    const SCOPES = ['user-read-private', 'user-read-email', 'user-top-read', 'playlist-modify-public', 'playlist-read-collaborative', 'playlist-read-private', 'playlist-modify-private', 'user-library-read'];
+    const SCOPES = ['user-read-private', 'user-read-email', 'user-top-read', 'playlist-modify-public', 'playlist-read-collaborative', 'playlist-read-private', 'playlist-modify-private', 'user-library-read', 'user-modify-playback-state'];
 
     const [token, setToken] = useState("");
     const [topTracks, setTopTracks] = useState([]);
@@ -29,7 +30,7 @@ function App() {
     // const [spotify, setSpotify] = useState();
 
     // Setting credentials can be done in the wrapper's constructor, or using the API object's setters.
-    var spotifyApi = new SpotifyWebApi({
+    const spotifyApi = new SpotifyWebApi({
     redirectUri: REDIRECT_URI,
     clientId: CLIENT_ID,
     });
@@ -51,7 +52,7 @@ function App() {
         if(token) {
 
             /* Get a User’s Top Tracks*/
-            spotifyApi.getMyTopTracks()
+            spotifyApi.getMyTopTracks("time_range=long_term")
                 .then(function(data) {
                     let topTracks = data.body.items;
                     setTopTracks(topTracks);
@@ -89,7 +90,7 @@ function App() {
                     : <div className="App-container">
 
                         <div className="App-header">
-                            <button onClick= {() => setNavVisible(!navVisible)} className=""> ≡ </button>
+                            <button onClick= {() => setNavVisible(!navVisible)} className=""> <FormatAlignJustifyIcon/> </button>
                             <p>More Detailed Spotify</p>        
                         </div>
 

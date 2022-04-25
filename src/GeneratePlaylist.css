@@ -1,6 +1,7 @@
 .generate-playlist-container {
     overflow: auto;
     border: 0;
+    height: 95vh;
 }
 
 .generate-playlist-container button {
@@ -16,4 +17,17 @@
 .generate-playlist-container button:hover {
     transition: 100ms transform ease-in;
     transform: scale(1.08);
+}
+
+.generated-playlist-container {
+    width: 100%;
+    display: inline-block;
+    flex-direction: column;
+    align-items: center;
+}
+
+.generated-playlist-container button {
+    background-color: transparent;
+    width: 20%;
+    height: 20%;
 }

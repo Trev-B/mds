@@ -2,6 +2,8 @@ import React from 'react';
 import {useEffect, useState} from "react";
 import AnalyzePlaylist from './AnalyzePlaylist';
 import './PlaylistBar.css';
+import Track from './Track';
+import Playlist from './Playlist';
 
 const Playlistbar = ({spotify, userInfo}) => {
 
@@ -40,6 +42,23 @@ const Playlistbar = ({spotify, userInfo}) => {
 
     }
 
+    const playTrack = async (id) => {
+        await spotify.addToQueue("spotify:track:" + id)
+            .then(function(data) {
+                // console.log(data);
+        }, function(err) {
+                alert("No active device.");
+                console.log('Something went wrong!', err);
+        });
+
+        await spotify.skipToNext()
+            .then(function() {
+                // console.log('Skip to next');
+            }, function(err) {
+                console.log('Something went wrong!', err);
+            });
+    }
+
 
     return (
         <div className="playlist-bar-container">
@@ -49,12 +68,9 @@ const Playlistbar = ({spotify, userInfo}) => {
                     <h6>Playlists</h6>
                     <hr></hr>
                 </div>
-                {userPlaylists.items.map(playlist =>(  <div className="user-playlist" key={playlist.id}>
-                                                            <button onClick= {() => handlePlaylistClick(playlist)} key={playlist.id}>
-                                                                    {playlist.images.length ? <img width={"100%"} src={playlist.images[0].url} alt=""/> : <div>No Image</div>}
-                                                                    {playlist.name}  
-                                                            </button>
-                                                        </div>
+                {userPlaylists.items.map(playlist =>(  <button className="playlist-btn" onClick= {() => handlePlaylistClick(playlist)} key={playlist.id}>   
+                                                            <Playlist playlist={playlist}></Playlist>   
+                                                        </button>    
                                                     ))}
             </div>
 
@@ -64,12 +80,9 @@ const Playlistbar = ({spotify, userInfo}) => {
                     <h6>{selectedPlaylist.name}</h6>
                     <hr></hr>
                 </div>
-                {selectedPlaylistTracks.map(track =>(   <div key={track.track.id}>
-                                                            <p className="selected-playlist-tracks" key={track.track.id}>
-                                                                {track.track.name}
-                                                            </p>
-                                                            <hr></hr>
-                                                        </div>
+                {selectedPlaylistTracks.map(track =>(   <button className="playlist-btn" onClick= {() => playTrack(track.track.id)} key={track.track.id}>
+                                                            <Track track={track.track}></Track>
+                                                        </button>
                                                     ))}
             </div>
 

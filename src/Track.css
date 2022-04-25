@@ -1,0 +1,25 @@
+.track {
+    margin: 1vh;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.track img {
+    height: 40%;
+    width: 40%;
+}
+
+.track-info {
+    margin-left: 0.5em;
+}
+
+.track-info > h1 {
+    font-size: 1em;
+}
+
+.track-info > p {
+    font-size: 0.9em;
+    color: gray;
+}

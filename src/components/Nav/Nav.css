@@ -5,24 +5,20 @@
     align-items: center;
 }
 
-.nav-container hr{
-    width: 100%;
-}
-
 .nav-container button {
-    background-color: rgb(220, 220, 220);
-    color: black;
-    border-radius: 30px;
+    background-color: transparent;
+    color: white;
+    border: none;
     cursor: pointer;
     line-height: 1em;
     font-size: 0.6em;
-    width: 70%;
+    width: 100%;
     margin-top: 1em;
-    border-color: rgb(14, 14, 14);
-    border-width: 6px;
+    height: 50px;
 }
 
 .nav-container button:hover {
     transition: 100ms transform ease-in;
     transform: scale(1.08);
+    background-color: #8d8d8d;
 }
