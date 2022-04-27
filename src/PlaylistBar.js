@@ -5,7 +5,7 @@ import './PlaylistBar.css';
 import Track from './Track';
 import Playlist from './Playlist';
 
-const Playlistbar = ({spotify, userInfo}) => {
+const PlaylistBar = ({spotify}) => {
 
     spotify.setAccessToken(window.localStorage.getItem("token"));
 
@@ -99,4 +99,4 @@ const Playlistbar = ({spotify, userInfo}) => {
     );
 }
 
-export default Playlistbar;
+export default PlaylistBar;

@@ -1,6 +1,5 @@
 import React from 'react';
 import {useEffect, useState} from "react";
-//import { PieChart, Pie, Sector, Cell, ResponsiveContainer } from 'recharts';
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import "./AnalyzePlaylist.css"
 
@@ -82,19 +81,6 @@ const Analyzeplaylist = ({playlist}) => {
                     </ResponsiveContainer>
 
             </div>
-
-            {/* <div className="playlist-genre-dist">
-                
-                    <BarChart width={1300} height={400} data={artistDistribution} margin={{top: 10, right: 50,left: 0,  bottom: 5}} >
-                        <CartesianGrid strokeDasharray="3 3" />
-                        <XAxis dataKey="name" angle={90} interval={0} dy={20} hide={"false"}/>
-                        <YAxis />
-                        <Legend/>
-                        <Bar dataKey="value" fill="#8884d8" />
-                        <Tooltip content={<CustomTooltip />} />
-                    </BarChart>
-                
-            </div> */}
 
         </div>
     );
