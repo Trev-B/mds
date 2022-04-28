@@ -8,7 +8,7 @@ import PlaylistBar from "./PlaylistBar";
 import FormatAlignJustifyIcon from '@material-ui/icons/FormatAlignJustify';
 
 function App() {
-    const CLIENT_ID = "edff2062bb8e47e48622966107b668b5";
+    const CLIENT_ID = "0ad564778439400288b8a2d44b3d0622";
     const REDIRECT_URI = "http://localhost:3000";
     const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize";
     const RESPONSE_TYPE = "token";
