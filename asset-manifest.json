@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/mds/static/css/main.5a03efe3.css",
+    "main.js": "/mds/static/js/main.6762f5f1.js",
+    "static/js/787.0c3f432a.chunk.js": "/mds/static/js/787.0c3f432a.chunk.js",
+    "index.html": "/mds/index.html",
+    "main.5a03efe3.css.map": "/mds/static/css/main.5a03efe3.css.map",
+    "main.6762f5f1.js.map": "/mds/static/js/main.6762f5f1.js.map",
+    "787.0c3f432a.chunk.js.map": "/mds/static/js/787.0c3f432a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5a03efe3.css",
+    "static/js/main.6762f5f1.js"
+  ]
+}
