@@ -1,10 +1,10 @@
 import {useEffect, useState} from "react";
-import './App.css';
+import './styles/App.css';
 import SpotifyWebApi from 'spotify-web-api-node';
-import ProfileOverview from './ProfileOverview';
-import PlaylistGenerator from './PlaylistGenerator';
-import Nav from "./Nav";
-import PlaylistBar from "./PlaylistBar";
+import ProfileOverview from './components/ProfileOverview';
+import PlaylistGenerator from './components/PlaylistGenerator';
+import Nav from "./components/Nav";
+import PlaylistBar from "./components/PlaylistBar";
 import FormatAlignJustifyIcon from '@material-ui/icons/FormatAlignJustify';
 
 function App() {

@@ -1,7 +1,7 @@
 import React from 'react';
 import {useEffect, useState} from "react";
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-import "./AnalyzePlaylist.css"
+import "../styles/AnalyzePlaylist.css"
 
 const Analyzeplaylist = ({playlist}) => {
     const [artistDistribution, setArtistDistribution] = useState([]);

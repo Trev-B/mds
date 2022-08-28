@@ -1,7 +1,7 @@
 import React from 'react';
 import {useEffect, useState, useRef} from "react";
-import './PlaylistGenerator.css';
-import Track from './Track.js';
+import '../styles/PlaylistGenerator.css';
+import Track from './Track.jsx';
 
 const Playlistgenerator = ({spotify}) => {
 

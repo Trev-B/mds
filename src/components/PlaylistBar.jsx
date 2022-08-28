@@ -1,7 +1,7 @@
 import React from 'react';
 import {useEffect, useState} from "react";
 import AnalyzePlaylist from './AnalyzePlaylist';
-import './PlaylistBar.css';
+import '../styles/PlaylistBar.css';
 import Track from './Track';
 import Playlist from './Playlist';
 

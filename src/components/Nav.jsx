@@ -1,5 +1,5 @@
 import React from 'react'
-import "./Nav.css"
+import "../styles/Nav.css"
 import AddBoxIcon from '@material-ui/icons/AddBox';
 import HomeIcon from '@material-ui/icons/Home';
 import BarChartIcon from '@material-ui/icons/BarChart';
